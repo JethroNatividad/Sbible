@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import './Chapter.css'
 class Chapter extends Component {
     handleClick = () => {
         this.props.props.history.push(`/bibles/${this.props.chapter.bibleId}/books/${this.props.chapter.bookId}/chapters/${this.props.chapter.id}/verses`)
@@ -7,7 +7,7 @@ class Chapter extends Component {
     render() {
         const {number} = this.props.chapter
         return (
-            <div onClick={this.handleClick}>
+            <div className='Chapter' onClick={this.handleClick}>
                 {number}
             </div>
         )

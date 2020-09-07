@@ -1,0 +1,15 @@
+.Chapter{
+    border: 1px solid rgba(0, 0, 0, 0.445);
+    padding: 0px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 45px;
+    height: 50px;
+}
+.Chapter:hover{
+    background-color: #4A4E69;
+    color: white;
+    transition: all ease-in-out 300ms;
+    cursor: pointer;
+}

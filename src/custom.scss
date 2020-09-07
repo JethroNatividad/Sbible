@@ -1,7 +1,9 @@
 // Override default variables before the import
 $theme-colors: (
     "info": tomato,
-    "danger": teal
+    "danger": teal,
+    "dark": #22223B,
+    "bitDark": #4A4E69
 );
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';

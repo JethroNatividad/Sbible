@@ -1,16 +1,20 @@
 import React, { Component } from 'react'
-
+import './Book.css'
+import {Animated} from "react-animated-css";
+import {withRouter} from 'react-router-dom'
 class Book extends Component {
     handleClick = () => {
-        this.props.props.history.push(`/bibles/${this.props.book.bibleId}/books/${this.props.book.id}/chapters`)
+        this.props.history.push(`/bibles/${this.props.book.bibleId}/books/${this.props.book.id}/chapters`)
     }
     render() {
         const {name} = this.props.book
         return (
-            <div onClick={this.handleClick} className='Book'>
-                {name}
-            </div>
+            <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
+                <div onClick={this.handleClick} className='Book'>
+                    {name}
+                </div>
+            </Animated>
         )
     }
 }
-export default Book
+export default withRouter(Book)

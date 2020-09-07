@@ -1,0 +1,9 @@
+.NavBar .NavLink{
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    text-transform: uppercase;
+}
+.NavBar .NavLink-Active{
+    color: rgb(153, 151, 151);
+}

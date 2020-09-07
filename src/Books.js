@@ -1,32 +1,31 @@
 import React, { Component } from 'react'
 import Book from './Book'
-import axios from 'axios'
-
+import Loader from './Loader'
+import { Row, Col } from 'react-bootstrap'
+import './Books.css'
+import {fetchData} from './helpers'
 class Books extends Component {
     state = {
-        Books: []
+        Books: [],
+        Loading: true
     }
-    bibleId = this.props.props.match.params.bibleId
-    fetchBooks = () => {
-        axios.get(`${this.props.BASE_API}/v1/bibles/${this.bibleId}/books`, {
-            headers: {
-            "api-key": '530486e6f07ce795f80f622c3f223cea'
-            }
-        }).then(res =>{
-            console.log(res)
-            this.setState({Books: res.data.data})
-        })
-    }
-    componentDidMount(){
-        this.fetchBooks()
+    bibleId = this.props.match ? this.props.match.params.bibleId : '06125adad2d5898a-01'
+    componentDidMount() {
+        fetchData('Books', `/v1/bibles/${this.bibleId}/books`, this )
     }
     render() {
         return (
-            <div className='Books'>
-                {this.state.Books.map(b => (
-                    <Book props={this.props.props} book={b} key={b.id} />
-                ))}
-            </div>
+            this.state.Loading 
+            ?   <Loader/>
+            :   <div className='Books'>
+                    <Row className='Book-cont'>
+                        {this.state.Books.map(b => (
+                            <Col key={b.id} xs={6} md={4} lg={3}>
+                                <Book props={this.props} book={b} />
+                            </Col>
+                        ))}
+                    </Row>
+                </div>
         )
     }
 }

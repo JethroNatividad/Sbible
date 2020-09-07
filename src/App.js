@@ -1,26 +1,33 @@
 import React, { Component } from 'react'
+import Home from './Home'
 import Bibles from './Bibles'
 import Books from './Books'
 import Chapters from './Chapters'
 import Verses from './Verses'
-import './custom.scss';
+import NavBar from './NavBar'
 import './App.css';
+import './custom.scss';
 import { Switch, Route } from 'react-router-dom'
+import {Container} from 'react-bootstrap'
 
-const BASE_API = 'https://api.scripture.api.bible'
 class App extends Component {
   render() {
     return (
-      <div>
-        <Switch>
-          <Route exact path='/bibles' render={(p) => <Bibles BASE_API={BASE_API} props={p} />} />
-          <Route exact path='/bibles/:bibleId/books' render={(p) => <Books BASE_API={BASE_API} props={p} />} />
-          <Route exact path='/bibles/:bibleId/books/:bookId/chapters' render={(p) => <Chapters BASE_API={BASE_API} props={p} />} />
-          <Route exact path='/bibles/:bibleId/books/:bookId/chapters/:chapterId/verses' render={(p) => <Verses BASE_API={BASE_API} props={p} />}/>
-          <Route exact path='/bibles/:bibleId/search'/>
-        </Switch>
+      <div className='App'>
+        <NavBar/>
+        <Container style={{marginTop: '90px'}}>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/bibles' component={Bibles} />
+            <Route exact path='/bibles/:bibleId/books' component={Books} />
+            <Route exact path='/bibles/:bibleId/books/:bookId/chapters' component={Chapters} />
+            <Route exact path='/bibles/:bibleId/books/:bookId/chapters/:chapterId/verses' component={Verses} />
+            <Route exact path='/bibles/:bibleId/search'/>
+          </Switch>
+        </Container>
       </div>
     )
   }
 }
+
 export default App;
