@@ -3,7 +3,9 @@ import ListGroupItem from 'react-bootstrap/ListGroupItem'
 import {Animated} from "react-animated-css";
 import './Bible.css'
 class Bible extends Component {
+    //on clicking a bible
     handleClick = () => {
+        //redirect to its page with the books listed
         this.props.props.history.push(`/bibles/${this.props.bible.id}/books`)
     }
     render() {

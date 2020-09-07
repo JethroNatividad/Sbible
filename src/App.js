@@ -22,7 +22,6 @@ class App extends Component {
             <Route exact path='/bibles/:bibleId/books' component={Books} />
             <Route exact path='/bibles/:bibleId/books/:bookId/chapters' component={Chapters} />
             <Route exact path='/bibles/:bibleId/books/:bookId/chapters/:chapterId/verses' component={Verses} />
-            <Route exact path='/bibles/:bibleId/search'/>
           </Switch>
         </Container>
       </div>

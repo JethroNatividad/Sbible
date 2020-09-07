@@ -9,8 +9,12 @@ class Books extends Component {
         Books: [],
         Loading: true
     }
-    bibleId = this.props.match ? this.props.match.params.bibleId : '06125adad2d5898a-01'
+    //grab the bibleId from the route parameters. this component is reused on the homepage with the id of ASV bible
+    bibleId = this.props.match ? this.props.match.params.bibleId : '06125adad2d5898a-01' //<<<<< this one
+    //onMount, fetch data from api. See 'helpers.js'
     componentDidMount() {
+        //          name              api endpoint             this
+        //           v                    v                      v
         fetchData('Books', `/v1/bibles/${this.bibleId}/books`, this )
     }
     render() {

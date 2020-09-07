@@ -10,12 +10,19 @@ class Chapters extends Component {
         Chapters: [],
         Loading: true
     }
+    //bibleId taken on the route parameters
     bibleId = this.props.match.params.bibleId
+    //bookId taken on the route parameters
     bookId = this.props.match.params.bookId
+    //onMount, fetch data from api. See 'helpers.js'
     componentDidMount() {
+        //          name                            api endpoint                          this
+        //           v                                  v                                   v
         fetchData('Chapters', `/v1/bibles/${this.bibleId}/books/${this.bookId}/chapters`, this)
     }
     render() {
+        //I decided to remove the intro chapter because its useless
+        //save Chapters from the state to chapters if the number is not 'intro'
         let chapters = this.state.Chapters.filter(c => c.number !== 'intro')
         return (
             this.state.Loading 

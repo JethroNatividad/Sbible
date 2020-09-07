@@ -10,7 +10,10 @@ class Bibles extends Component {
         Bibles: [],
         Loading: true
     }
+    //onMount, fetch data from api. See 'helpers.js'
     componentDidMount() {
+        //          name        api endpoint          this
+        //           v                v                 v
         fetchData('Bibles', '/v1/bibles?language=eng',this)
         
     }
